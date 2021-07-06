@@ -1,0 +1,31 @@
+.cart__item__gallery {
+    height: 100%;
+    width: 17.5rem;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    padding: 0 2rem;
+    &__prev,
+    &__next {
+        width: 2.5rem;
+        height: 2.5rem;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        display: flex;
+        align-items: center;
+        border-radius: 50%;
+        justify-content: center;
+        background-color: #5ece7b;
+        cursor: pointer;
+    }
+    &__prev {
+        left: -3rem;
+        transform: translateY(-50%) rotate(180deg);
+    }
+    &__next {
+        right: -3rem;
+    }
+}

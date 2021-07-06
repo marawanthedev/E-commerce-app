@@ -1,0 +1,64 @@
+.item-attribute {
+    width: 100%;
+    font-size: 1rem;
+    min-height: 10em;
+    margin: .5rem 0;
+    
+     &.mini{
+
+        font-size: .6rem;
+    }
+    &__name {
+        font-size: 1.8em;
+        font-family: 'Roboto Condensed', sans-serif;
+        line-height: 1.8em;
+        font-weight: bold;
+        margin-bottom: 1em;
+        text-transform: uppercase;
+    }
+    &__buttons-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        padding-bottom: 1em;
+        &::-webkit-scrollbar {
+            top: 12rem;
+            width: 11px;
+            height: 11px;
+            margin-top: 2em;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: linear-gradient(95deg, #1d1f22 43%, #1d1f22 63%);
+            border-radius: 13px;
+        }
+        &::-webkit-scrollbar-thumb:hover {
+            background: #5ece7b;
+        }
+        &::-webkit-scrollbar-track {
+            background: #ffffff;
+            border-radius: 11px;
+            box-shadow: inset 7px 10px 12px #f0f0f0;
+        }
+    }
+    &__btn {
+        min-width: 3.5em;
+        height: 2.75em;
+        border: 1px solid #1D1F22;
+        outline: none;
+        background-color: white;
+        color: black;
+        font-size: 1.7em;
+        line-height: 1.8rem;
+        font-family: 'Source Sans Pro', sans-serif;
+        cursor: pointer;
+        &:not(:first-of-type) {
+            margin: 0 1em;
+        }
+        &.active {
+            background-color: black;
+            color: white;
+        }
+    }
+}

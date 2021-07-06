@@ -1,0 +1,18 @@
+.icon__button {
+    // background-color: black;
+    background-color: transparent;
+    color: black;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(29, 31, 34, 1);
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: .5rem;
+    font-size: 1.75rem;
+    font-family: 'Source Sans Pro', sans-serif;
+}
