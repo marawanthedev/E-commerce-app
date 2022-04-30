@@ -26,23 +26,16 @@ class ItemAttributes extends React.PureComponent {
     onClickCallBack(attributeIndex, index, item);
   };
 
-  render() {
-    const { attribute, hideAttributeName, toggleButtons, isMini } = this.props;
+  handleAttributesModeBehavior = (attribute) => {
+    const { isViewMode, toggleButtons } = this.props;
     const { selectedAttributeBtnIndex } = this.state;
 
-    return (
-      <div className={`item-attribute ${isMini ? "mini" : null}`}>
-        {hideAttributeName !== true ? (
-          <div className="item-attribute__name">{attribute.name}:</div>
-        ) : null}
-        <div className="item-attribute__buttons-container">
-          {attribute.items.map((item, index) => (
+    return attribute.items.map((item, index) => {
+      if (isViewMode === true) {
+        if (item.selected) {
+          return (
             <button
-              className={`item-attribute__btn ${
-                index === selectedAttributeBtnIndex || item.selected === true
-                  ? "active"
-                  : null
-              }`}
+              className="item-attribute__btn active"
               key={index}
               onClick={() => {
                 if (toggleButtons) {
@@ -52,7 +45,42 @@ class ItemAttributes extends React.PureComponent {
             >
               {item.displayValue}
             </button>
-          ))}
+          );
+        } else {
+          return null;
+        }
+      } else {
+        return (
+          <button
+            className={`item-attribute__btn ${
+              index === selectedAttributeBtnIndex || item.selected === true
+                ? "active"
+                : null
+            }`}
+            key={index}
+            onClick={() => {
+              if (toggleButtons) {
+                this.handleAttributeUISelection(index, item.selected);
+              }
+            }}
+          >
+            {item.displayValue}
+          </button>
+        );
+      }
+    });
+  };
+
+  render() {
+    const { attribute, hideAttributeName, isMini } = this.props;
+
+    return (
+      <div className={`item-attribute ${isMini ? "mini" : null}`}>
+        {hideAttributeName !== true ? (
+          <div className="item-attribute__name">{attribute.name}:</div>
+        ) : null}
+        <div className="item-attribute__buttons-container">
+          {this.handleAttributesModeBehavior(attribute)}
         </div>
       </div>
     );

@@ -32,7 +32,7 @@ class CartItem extends dependecies.React.PureComponent {
                   prices.filter(
                     (price) => price.currency === selectedCurrency
                   )[0]["amount"]
-                }{" "}
+                }
               </div>
             </div>
             <div className="cart-item__content__attributes-container">
@@ -47,6 +47,7 @@ class CartItem extends dependecies.React.PureComponent {
                         attribute={attribute}
                         isMini={true}
                         onClickCallBack={() => {}}
+                        isViewMode={true}
                       ></ItemAttribues>
                     </div>
                   );
