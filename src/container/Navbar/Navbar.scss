@@ -1,129 +1,126 @@
-$--c-primary :#5ECE7B;
+$--c-primary: #5ece7b;
 .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 8rem;
+  background-color: white;
+  font-size: 1.6rem; //16px
+  overflow: hidden;
+  &__section {
+    height: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    width: 100%;
-    height: 8rem;
-    background-color: white;
-    font-size: 1.6rem; //16px
-    overflow: hidden;
-    &__section {
-        height: 100%;
-        display: flex;
-        align-items: center;
-        width: 33.3%;
-        &__right {
-            align-self: flex-end;
-            justify-content: flex-end;
-            padding-right: 4rem;
-            @media only screen and (max-width: 400px) {
-                padding-right: 1rem;
-            }
-            &__item {
-                margin: 0 1rem;
-            }
-        }
-        &__left {
-            align-self: flex-start;
-            align-content: left;
-            display: flex;
-            justify-content: flex-start;
-            &__item {
-                position: relative;
-                transition: .3s ease-in-out forwards;
-                &::first-letter {
-                    text-transform: uppercase;
-                }
-                &:not(:first-of-type) {
-                    margin-right: 5rem;
-                    @media only screen and (max-width: 400px) {
-                        margin: 0 1.5rem;
-                    }
-                }
-                &:first-of-type {
-                    margin-right: 5rem;
-                    @media only screen and (max-width: 400px) {
-                        margin-right: 1.5rem;
-                    }
-                }
-                &.active {
-                    color: $--c-primary;
-                    &::after {
-                        visibility: visible;
-                    }
-                }
-                &:hover {
-                    color: $--c-primary;
-                    &::after {
-                        visibility: visible;
-                    }
-                }
-                &::after {
-                    content: "";
-                    position: absolute;
-                    bottom: -2.5rem;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    width: 7rem;
-                    height: 2px;
-                    background-color: $--c-primary;
-                    visibility: hidden;
-                    transition: all .3s ease-in-out forwards;
-                }
-            }
-        }
-        &__middle {
-            justify-content: center;
-        }
+    width: 33.3%;
+    &__right {
+      align-self: flex-end;
+      justify-content: flex-end;
+      padding-right: 4rem;
+      @media only screen and (max-width: 400px) {
+        padding-right: 1rem;
+      }
+      &__item {
+        margin: 0 1rem;
+      }
     }
-    &__item {
-        cursor: pointer;
+    &__left {
+      align-self: flex-start;
+      align-content: left;
+      display: flex;
+      justify-content: flex-start;
+      @media only screen and (max-width: 600px) {
+        width: 25rem;
+      }
+      &__item {
         position: relative;
+        transition: 0.3s ease-in-out forwards;
+        &::first-letter {
+          text-transform: uppercase;
+        }
+        &:not(:first-of-type) {
+          margin-right: 5rem;
+        }
+        &:first-of-type {
+          margin-right: 5rem;
+        }
+        &.active {
+          color: $--c-primary;
+          &::after {
+            visibility: visible;
+          }
+        }
+        &:hover {
+          color: $--c-primary;
+          &::after {
+            visibility: visible;
+          }
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -2.5rem;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 7rem;
+          height: 2px;
+          background-color: $--c-primary;
+          visibility: hidden;
+          transition: all 0.3s ease-in-out forwards;
+        }
+      }
     }
-    &__icon {
-        display: inline-block;
-        width: 2rem;
-        height: 2rem;
-        fill: grey;
-        &__currency {
-            border: 1px solid red;
-        }
-        &__small {
-            width: 1.25rem;
-            height: 1.25rem;
-        }
-        &__chevron {
-            position: absolute;
-            top: .85rem;
-            left: 2.5rem;
-            transition: all .2s ease-in-out;
-            &__rotate {
-                transform: rotate(180deg);
-            }
-        }
-        &__cart {
-            margin-left: 2.5rem;
-        }
+    &__middle {
+      justify-content: center;
     }
+  }
+  &__item {
+    cursor: pointer;
+    position: relative;
+  }
+  &__icon {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    fill: grey;
+    &__currency {
+      border: 1px solid red;
+    }
+    &__small {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+    &__chevron {
+      position: absolute;
+      top: 0.85rem;
+      left: 2.5rem;
+      transition: all 0.2s ease-in-out;
+      &__rotate {
+        transform: rotate(180deg);
+      }
+    }
+    &__cart {
+      margin-left: 2.5rem;
+    }
+  }
 }
 
 .cart-overlay {
-    width: 100%;
-    height: 100vmax;
-    background-color: rgba(57, 55, 72, 0.22);
-    z-index: 22;
-    position: fixed;
-    bottom: 0;
-    left: 0;
+  width: 100%;
+  height: 100vmax;
+  background-color: rgba(57, 55, 72, 0.22);
+  z-index: 22;
+  position: fixed;
+  bottom: 0;
+  left: 0;
 }
 
 .currency-overlay {
-    width: 100%;
-    height: 100vmax;
-    background-color: transparent;
-    z-index: 22;
-    position: fixed;
-    bottom: 0;
-    left: 0;
+  width: 100%;
+  height: 100vmax;
+  background-color: transparent;
+  z-index: 22;
+  position: fixed;
+  bottom: 0;
+  left: 0;
 }

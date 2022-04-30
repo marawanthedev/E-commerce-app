@@ -1,106 +1,108 @@
+@import "../../sass/mixins.scss";
 .cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-height: 12rem;
+  // overflow-y: hidden;
+  margin-bottom: 4rem;
+  position: relative;
+  border-radius: 20px;
+  z-index: 1;
+
+  &__img {
+    width: 10.5rem;
+    height: 100%;
+    width: 40%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-position: center;
+    background-size: cover;
+  }
+  &__content {
+    background-color: white;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    min-height: 12rem;
-    // overflow-y: hidden;
-    margin-bottom: 4rem;
-    position: relative;
-    border-radius: 20px;
-    z-index: 1;
-   
-    &__img {
-        width: 10.5rem;
-        height: 100%;
-        width: 40%;
-        border-top-right-radius: 10px;
-        border-bottom-right-radius: 10px;
-        background-position: center;
-        background-size: cover;
+    height: 100%;
+    width: 60%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-size: 1.6rem;
+    &__main {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
-    &__content {
-        background-color: white;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        height: 100%;
-        width: 60%;
-        border-top-left-radius: 10px;
-        border-bottom-left-radius: 10px;
-        font-size: 1.6rem;
-        &__main {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        &__header {
-            margin-bottom: 0.5rem;
-            font-weight: 300;
-            margin-bottom: 1rem;
-        }
-        &__price {
-            font-weight: 500;
-        }
-        &__attributes-container {
-            position: absolute;
-            top: 5.5rem;
-            height: 7rem;
-            overflow-y: auto;
-        }
-        &__attribute-buttons-container {
-            width: 100%;
-            height: 4rem;
-            width: 10rem;
-            margin: 2rem 0;
-            margin-bottom: 2rem;
-            &__btn {
-                &:not(:first-of-type) {
-                    margin: 0 .5rem;
-                }
-                 :first-of-type {
-                    margin-right: .5rem;
-                }
-            }
-        }
-        &__btn {
-            // background-color: black;
-            background-color: transparent;
-            color: black;
-            cursor: pointer;
-            border: none;
-            outline: none;
-            transition: all 0.2s ease-in-out;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 1px solid rgba(29, 31, 34, 1);
-            min-width: 2.5rem;
-            min-height: 2.5rem;
-            padding: .5rem;
-            font-size: 1.75rem;
-            font-family: 'Source Sans Pro', sans-serif;
-        }
-        &__quantity-buttons-container {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            width: 25%;
-            height: 100%;
-            z-index: 20;
-            transition: all 0.3s ease-in-out;
-            overflow: hidden;
-        }
-        &__price &__quantity-btn:hover .cart-item__content__btn {
-            color: white;
-        }
-        &__quantity {
-            // margin-right: 2.75rem;
-            margin: 0 1rem;
-            position: relative;
-        }
+    &__header {
+      margin-bottom: 0.5rem;
+      font-weight: 300;
+      margin-bottom: 1rem;
     }
+    &__price {
+      font-weight: 500;
+    }
+    &__attributes-container {
+      position: absolute;
+      top: 5.5rem;
+      height: 10rem;
+      overflow-y: auto;
+      @include customScrollBar;
+    }
+    &__attribute-buttons-container {
+      width: 100%;
+      height: 4rem;
+      width: 10rem;
+      margin: 2rem 0;
+      margin-bottom: 2rem;
+      &__btn {
+        &:not(:first-of-type) {
+          margin: 0 0.5rem;
+        }
+        :first-of-type {
+          margin-right: 0.5rem;
+        }
+      }
+    }
+    &__btn {
+      // background-color: black;
+      background-color: transparent;
+      color: black;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      transition: all 0.2s ease-in-out;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid rgba(29, 31, 34, 1);
+      min-width: 2.5rem;
+      min-height: 2.5rem;
+      padding: 0.5rem;
+      font-size: 1.75rem;
+      font-family: "Source Sans Pro", sans-serif;
+    }
+    &__quantity-buttons-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      width: 25%;
+      height: 100%;
+      z-index: 20;
+      transition: all 0.3s ease-in-out;
+      overflow: hidden;
+    }
+    &__price &__quantity-btn:hover .cart-item__content__btn {
+      color: white;
+    }
+    &__quantity {
+      // margin-right: 2.75rem;
+      margin: 0 1rem;
+      position: relative;
+    }
+  }
 }
