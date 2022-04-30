@@ -51,48 +51,57 @@ class ProductDisplayPage extends dependecies.React.PureComponent {
     attributeIndex,
     attributeSelectionIndex
   ) => {
-    let allowAdditon = true;
+    if (attributes.length !== 0) {
+      let allowAdditon = true;
 
-    if (attributeIndex.length === attributes.length) {
-      attributeIndex.forEach((item) =>
-        item === undefined ? (allowAdditon = false) : null
-      );
-      attributeSelectionIndex.forEach((item) =>
-        item === undefined ? (allowAdditon = false) : null
-      );
-    } else {
-      allowAdditon = false;
+      if (attributeIndex.length === attributes.length) {
+        attributeIndex.forEach((item) =>
+          item === undefined ? (allowAdditon = false) : null
+        );
+        attributeSelectionIndex.forEach((item) =>
+          item === undefined ? (allowAdditon = false) : null
+        );
+      } else {
+        allowAdditon = false;
+      }
+
+      return allowAdditon;
     }
-
-    return allowAdditon;
+    return false;
   };
 
   handleAddToCartAction = (item, attributeIndex, attributeSelectionIndex) => {
     const { AddCartItem, addAttributeSelectionsIndex } = this.props;
     item.cartId = Math.floor(Math.random() * 10000);
 
-    if (
-      this.confirmAttributeSelections(
-        item.attributes,
-        attributeIndex,
-        attributeSelectionIndex
-      )
-    ) {
+    // if()
+
+    if (item.attributes.length === 0) {
       AddCartItem(item);
-      addAttributeSelectionsIndex(
-        item,
-        attributeIndex,
-        attributeSelectionIndex
-      );
     } else {
-      this.setState({
-        showAttributeSelectionAlert: true,
-      });
-      setTimeout(() => {
+      if (
+        this.confirmAttributeSelections(
+          item.attributes,
+          attributeIndex,
+          attributeSelectionIndex
+        )
+      ) {
+        AddCartItem(item);
+        addAttributeSelectionsIndex(
+          item,
+          attributeIndex,
+          attributeSelectionIndex
+        );
+      } else {
         this.setState({
-          showAttributeSelectionAlert: false,
+          showAttributeSelectionAlert: true,
         });
-      }, 2500);
+        setTimeout(() => {
+          this.setState({
+            showAttributeSelectionAlert: false,
+          });
+        }, 2500);
+      }
     }
   };
 

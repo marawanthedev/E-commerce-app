@@ -22,15 +22,15 @@
     justify-content: space-between;
     align-items: center;
     @media only screen and (max-width: 410px) {
-      flex-direction: column;
-      height: 40rem;
+      // flex-direction: column;
+      // height: 40rem;
       align-items: flex-start;
       justify-content: flex-start;
     }
     border-top: 1px solid rgba(229, 229, 229, 1);
     &__left-side {
       height: 100%;
-      width: auto;
+      width: 20rem;
       padding-right: 2rem;
       @media only screen and (max-width: 410px) {
         padding: 0;
@@ -41,9 +41,7 @@
     &__right-side {
       width: 35rem;
       height: 20rem;
-      @media only screen and (max-width: 500px) {
-        width: 30rem;
-      }
+
       display: flex;
       &__quantity-control {
         height: 100%;
@@ -63,15 +61,19 @@
             margin-left: 1rem;
           }
         }
-        @media only screen and (max-width: 500px) {
-          width: 5rem;
-          margin-right: 1rem;
-        }
-        @media only screen and (max-width: 410px) {
-          width: 10rem;
-          margin-right: 2rem;
-          align-items: flex-start;
-        }
+
+        // @media only screen and (max-width: 500px) {
+        //   width: 30rem;
+        // }
+        // @media only screen and (max-width: 500px) {
+        //   width: 5rem;
+        //   margin-right: 1rem;
+        // }
+        // @media only screen and (max-width: 410px) {
+        //   width: 10rem;
+        //   margin-right: 2rem;
+        //   align-items: flex-start;
+        // }
       }
       @media only screen and (max-width: 410px) {
         padding: 0;
@@ -81,6 +83,9 @@
     &__name {
       font-size: 3rem;
       font-weight: 600;
+      @media only screen and (max-width: 600px) {
+        font-size: 2.5rem;
+      }
     }
     &__price {
       font-size: 2.4rem;
@@ -90,17 +95,7 @@
     &__attributes {
       height: auto;
       margin-top: 1rem;
-      @media only screen and (max-width: 600px) {
-        width: 20rem;
-      }
-      @media only screen and (max-width: 500px) {
-        width: 16rem;
-      }
-      @media only screen and (max-width: 410px) {
-        width: 18rem;
-        margin-top: 2rem;
-        width: 100%;
-      }
+      display: inline-block;
       overflow: auto;
       @include customScrollBar;
     }

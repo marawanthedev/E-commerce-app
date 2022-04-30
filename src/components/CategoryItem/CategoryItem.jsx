@@ -1,7 +1,6 @@
 import dependecies from "./helpers/dependecies";
 
 class CategoryItem extends dependecies.React.PureComponent {
-    
   render() {
     const { cart, Link } = dependecies;
     const { selectedCurrency, selectedCurrencySymbol } = this.props;
@@ -21,6 +20,7 @@ class CategoryItem extends dependecies.React.PureComponent {
       item.cartId = Math.floor(Math.random() * 10000);
 
       if (item.attributes.length === 0) {
+        console.log("x");
         cartReduxCallBacks.AddCartItem(item);
       } else {
         this.redirectLink.click();

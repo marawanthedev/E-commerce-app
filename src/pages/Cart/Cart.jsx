@@ -79,6 +79,7 @@ class CartPage extends dependecies.React.PureComponent {
                             }
                             item={cartItem}
                             onClickCallBack={() => {}}
+                            isViewMode={true}
                           ></ItemAttribues>
                         );
                       }
